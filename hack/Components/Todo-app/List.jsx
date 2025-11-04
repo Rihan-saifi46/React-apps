@@ -5,7 +5,16 @@ const List = ({list,setList}) => {
     <ul>
        {
         list.map((item,index) => {
-         return  <li key={index}>{item}</li>
+         return  <li key={index}>{item}
+         <button onClick={ () => {
+          const delTodo = list.filter((_,i)=> i !== index)
+          setList(delTodo)
+         }}>Delete</button>
+
+         <button onClick={()=>{
+            
+         }}>Edit</button>
+         </li>
         })
        }
     </ul>
