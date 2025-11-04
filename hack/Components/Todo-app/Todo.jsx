@@ -11,7 +11,7 @@ const Todo = () => {
 
       if(edit !== null){
         const updateList  = [...list]
-        updateList(edit) = todo
+        updateList[edit] = todo
         setList(updateList)
         setEdit(null)
       }

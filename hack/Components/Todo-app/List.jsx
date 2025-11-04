@@ -1,6 +1,6 @@
 import React from 'react'
 
-const List = ({list,setList,todo,setTodo}) => {
+const List = ({list,setList,todo,setTodo,edit,setEdit}) => {
   return (
     <ul>
        {
@@ -12,7 +12,8 @@ const List = ({list,setList,todo,setTodo}) => {
          }}>Delete</button>
 
          <button onClick={()=>{
-         
+         setTodo(item)
+         setEdit(index)
          }}>Edit</button>
          </li>
         })
