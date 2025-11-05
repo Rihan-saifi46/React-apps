@@ -2,23 +2,28 @@ import React, { useState } from "react";
 
 const Quote = () => {
   const [quote, setQuote] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const Generator = async () => {
+    setLoading(true);
     try {
-      const res = await fetch("https://api.quotable.io/random");
-      const data = await res.json();
+      const response = await fetch("https://api.quotable.io/random");
+      if (!response.ok) throw new Error("Network response was not ok");
+      const data = await response.json();
       setQuote(data);
-      console.log(data);
     } catch (error) {
-      console.log("quote not found");
+      console.error("Error fetching quote:", error);
       setQuote({ content: "Failed to load quote", author: "Unknown" });
     }
+    setLoading(false);
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white text-center">
       <div className="bg-gray-800 p-8 rounded-2xl shadow-lg w-[70vw] max-w-xl">
-        {quote ? (
+        {loading ? (
+          <p className="text-gray-400 mb-6">Loading...</p>
+        ) : quote ? (
           <>
             <p className="text-xl italic mb-4">“{quote.content}”</p>
             <p className="font-bold text-lg mb-6">- {quote.author}</p>
