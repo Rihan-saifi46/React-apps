@@ -6,11 +6,11 @@ const Quote = () => {
 
     const Generator = async () => {
      try {
-        const fetch = await fetch('https://api.quotable.io/random')
-        const data = fetch.json()
+        const res = await fetch('https://api.quotable.io/random')
+        const data = await res.json()
         
         setQuote(data)
-        console.log(quote);      
+        console.log(data);      
 
      } catch (error) {
         console.log("quote not found");
@@ -19,14 +19,21 @@ const Quote = () => {
     }
   return (
    <>
-   <div>
+   {
+    quote ? (
+         <div>
    <p className='text-2xl'>rihan</p>
    </div>
-   <div className='flex gap-[2vw] align-middle'>
+    ): (  <div className='flex gap-[2vw] align-middle'>
     <p className='font-bold text-3xl'>author name</p>
    <button className='p-[1vw] rounded border-2' 
-   onClick={Generator}>New Quote</button>
+   onClick={Generator}>click to generate quote</button>
    </div>
+   
+   )}
+  <button>New Quote</button>
+ 
+   
    
    </>
   )
