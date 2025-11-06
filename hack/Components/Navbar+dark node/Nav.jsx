@@ -40,7 +40,7 @@ export default function Nav() {
                 Contact
               </a>
               
-              {/* Dark Mode Toggle */}
+              
               <button
                 onClick={toggleDarkMode}
                 className={`p-2 rounded-lg ${isDark ? 'bg-gray-700 text-yellow-300' : 'bg-gray-100 text-gray-700'} hover:scale-110 transition`}
@@ -49,9 +49,9 @@ export default function Nav() {
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
+            
             <div className="md:hidden flex items-center space-x-2">
-              {/* Dark Mode Toggle Mobile */}
+              
               <button
                 onClick={toggleDarkMode}
                 className={`p-2 rounded-lg ${isDark ? 'bg-gray-700 text-yellow-300' : 'bg-gray-100 text-gray-700'}`}
@@ -69,7 +69,6 @@ export default function Nav() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
           <div className={`md:hidden ${isDark ? 'bg-gray-700' : 'bg-gray-50'}`}>
             <div className="px-2 pt-2 pb-3 space-y-1">
@@ -102,7 +101,7 @@ export default function Nav() {
         )}
       </nav>
 
-      {/* Demo Content */}
+     
       <div className="max-w-7xl mx-auto px-4 py-12">
         <h1 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
           Welcome to My Website
