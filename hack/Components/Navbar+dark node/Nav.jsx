@@ -18,14 +18,14 @@ export default function Nav() {
       <nav className={isDark ? 'bg-gray-800 shadow-lg' : 'bg-white shadow-lg'}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
-            {/* Logo */}
+          
             <div className="flex items-center">
               <span className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 MyBrand
               </span>
             </div>
 
-            {/* Desktop Menu */}
+            
             <div className="hidden md:flex items-center space-x-8">
               <a href="#home" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-gray-900'} transition`}>
                 Home
