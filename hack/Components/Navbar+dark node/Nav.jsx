@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 
-export default function Navbar() {
+export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
