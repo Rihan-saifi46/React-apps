@@ -14,7 +14,9 @@ const Pnav = () => {
 
   return (
    <>
-   
+   <div className={isDark1 ? "bg-gray-950 min-h-screen":"bg-amber-50 min-h-screen"}>
+    
+   </div>
    </>
   )
 }
