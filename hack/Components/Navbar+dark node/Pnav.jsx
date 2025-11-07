@@ -21,16 +21,19 @@ const Pnav = () => {
         My Brand
       </div>
       <div className={isDark1 ? "text-white text-[2vw] flex gap-[2vw]":"text-black text-[1.7vw] flex gap-[3vw] "}>
+       {/* button  */}
+         <button onClick={dark} className={`p-2 rounded-lg ${isDark1 ? "bg-gray-700 text-yellow-400":"bg-amber-50 text-black"}  `}>
+            {isDark1 ? <Sun size={20}/>:<Moon size={20}/>}
+        </button>
+        {/* button  */}
+
         <a href="#" className='no-underline'>Home</a>
         <a href="#" className='no-underline'>About</a>
         <a href="#" className='no-underline'>Contact</a>
         <a href="#" className='no-underline'>Service</a>
 
-        <button onClick={dark} className={`p-2 rounded-lg ${isDark1 ? "bg-gray-700 text-yellow-400":"bg-amber-50 text-black"}  `}>
-            {isDark1 ? <Sun size={20}/>:<Moon size={20}/>}
-        </button>
       </div>
-      {/* button  */}
+      
       
      </nav>
    </div>
