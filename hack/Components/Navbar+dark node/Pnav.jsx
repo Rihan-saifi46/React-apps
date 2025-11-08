@@ -18,10 +18,10 @@ const Pnav = () => {
    <div className={isDark1 ? "bg-gray-950 min-h-screen":"bg-amber-50 min-h-screen"}>
      <nav className='flex justify-between px-[2vw] py-[.5vw] '>
       <div className='flex justify-between w-full'>
-        <div className={isDark1 ? "text-white text-3xl sm:text-2xl":"text-black text-[2vw] flex items-center sm:text-2xl"}>
+        <div className={isDark1 ? "text-white text-[2vw] sm:text-2xl":"text-black text-[2vw] flex items-center sm:text-2xl"}>
         My Brand
       </div>
-      <div className={`hidden md:flex ${isDark1 ? "text-white text-[2vw] flex gap-[2vw]":"text-black text-[1.7vw] flex gap-[3vw] "}`}>
+      <div className={`hidden md:flex ${isDark1 ? "text-white text-[1.7vw] flex gap-[2vw]":"text-black text-[1.7vw] flex gap-[3vw] "}`}>
        {/* button  */}
          <button onClick={dark} className={`p-2 rounded-lg ${isDark1 ? "bg-gray-700 text-yellow-400":"bg-amber-50 text-black"}  `}>
             {isDark1 ? <Sun size={20}/>:<Moon size={20}/>}
@@ -69,7 +69,16 @@ const Pnav = () => {
      }
      </nav>
    
-     
+       <div className='max-w-7xl mx-auto px-4 py-12'>
+         <h1 className={`text-4xl font-bold mb-4 ${isDark1 ? 'text-white' : 'text-gray-900'}`}>
+          Welcome to My Website
+        </h1>
+        <p className={`text-lg ${isDark1 ? 'text-gray-300' : 'text-gray-700'}`}>
+          This is a responsive navbar with dark mode toggle. Try resizing your browser window to see the mobile menu, 
+          and click the sun/moon icon to toggle between light and dark modes!
+        </p>
+       </div>
+
    </div>
    </>
   )
