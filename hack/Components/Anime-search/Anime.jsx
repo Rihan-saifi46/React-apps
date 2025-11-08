@@ -45,5 +45,23 @@ export default function AnimeSearchApp() {
       setLoading(false);
     }
   }
+
+  // Fetch details + first page of episodes for a selected anime id
+  async function openAnime(anime) {
+    setSelected(anime);
+    setEpisodes([]);
+    setLoading(true);
+    setErr(null);
+    try {
+      // Fetch episodes (first page)
+      const epRes = await fetch(`https://api.jikan.moe/v4/anime/${anime.mal_id}/episodes`);
+      if (!epRes.ok) throw new Error(`Episodes API error: ${epRes.status}`);
+      const epData = await epRes.json();
+      setEpisodes(epData.data || []);
+    } catch (error) {
+      setErr(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
 }
- 
