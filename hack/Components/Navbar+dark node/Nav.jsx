@@ -14,7 +14,7 @@ export default function Nav() {
   };
 
   return (
-    <div className={isDark ? 'bg-gray-900 min-h-screen' : 'bg-gray-50 min-h-screen'}>
+    <div className={isDark ? 'bg-gray-900 min-h-screen' : 'bg-white min-h-screen'}>
       <nav className={isDark ? 'bg-gray-800 shadow-lg' : 'bg-white shadow-lg'}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
