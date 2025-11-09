@@ -21,4 +21,14 @@ export default function AnimeSearchApp2() {
     setErr(null);
     setSelected(null);
     setEpisodes([]);
-    
+     try {
+      const resp = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}&limit=20`);
+      if (!resp.ok) throw new Error(`API error: ${resp.status}`);
+      const data = await resp.json();
+      setResults(data.data || []);
+    } catch (error) {
+      setErr(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
