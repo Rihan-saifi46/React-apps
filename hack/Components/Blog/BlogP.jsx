@@ -54,32 +54,19 @@ Yeh article tumhe Express, APIs aur server basics samjhaayega.
     `,
     excerpt: "Backend development start karne ke liye Node.js zaroor sikho."
   },
-  {
-    id: 5,
-    title: "Understanding MongoDB Collections",
-    author: "Rahul Mehta",
-    date: "Nov 7, 2025",
-    category: "Database",
-    thumbnail: "https://picsum.photos/600/400?5",
-    content: `
-MongoDB ek NoSQL database hai jisme data documents ki form me store hota hai.
-Collections aur documents ke basics is post me cover hai.
-    `,
-    excerpt: "NoSQL databases ka foundation samajhne ke liye yeh perfect guide hai."
-  }
 ];
 
-const [currentPost, setCurrentPost] = useState('')
+const [currentPost, setCurrentPost] = useState('home')
 const [selectPost,setSelectPost] = useState(null)
 
 const click = (post) => {
-    setPost('post')
-    setOpen(post)
+    setCurrentPost('post')
+    setSelectPost(post)
 }
 
 const back = () => {
-   setPost('')
-   setOpen(null) 
+   setCurrentPost('home')
+   setSelectPost(null) 
 }
 
   return (
@@ -87,15 +74,44 @@ const back = () => {
     <div className='text-center text-2xl p-1'>
         Blog Website
     </div>
+    {
+     currentPost==='home' && (    
+   <>
+     <div>
+      <p>Welcome to BLog</p>
+     </div>
+
+
     <div className='grid md:grid-cols-2 gap-8'>
     {
-        blogPosts.map((post) => {
-        <section 
+        blogPosts.map((post) => (
+        <section className='border-2 rounded bg-white '
         key={post.id}
-        onClick={click(post)}></section>
-        })
+        onClick={() => click(post)}>
+          <span>{post.category}</span>
+          <span>{post.author}</span>
+          <p>{post.title}</p>
+          <p>{post.excerpt}</p>
+        </section>
+        ))
     }
-    </div>
+    
+    </div> 
+    
+   </>
+   )
+}
+{
+        currentPost==='post' && selectPost && (
+         <div >
+          <button onClick={back}>Back to home</button>
+          <div>
+            <span>{selectPost.title}</span>
+            <p>{selectPost.content}</p>
+          </div>
+         </div>
+        )
+    }
     </>
   )
 }
